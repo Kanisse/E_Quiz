@@ -1,0 +1,90 @@
+
+<div class="container">
+
+  <div class="row"> 
+    <button (click)="Showform()" class="btn btn-primary text-right">
+      Nouveau Quiz
+    </button>
+  </div>
+
+  <div class="row">
+    <div *ngIf="ShowForm" class="col-md-6 mx-auto">
+     
+      <div class="form-group">
+
+        <label for="">Code</label>
+        <input [disabled]="!EditForm" [(ngModel)]="MonQuiz.code" type="text" 
+        class="form-control" aria-describedby="helpId">
+
+        <label for="">Intitulé</label>
+        <input [(ngModel)]="MonQuiz.intitule" type="text"  
+        class="form-control" aria-describedby="helpId">
+
+        <label for="">Etat</label>
+        <input [(ngModel)]="MonQuiz.etat" type="checkbox" 
+        class="form-control" > 
+        
+      
+      <button *ngIf="!EditForm" (click)="AddQuiz()" 
+      class="btn btn-success btn-block"> 
+         Ajouter le quiz
+      </button>
+      <button *ngIf="EditForm" (click)="UpdateQuiz()" 
+      class="btn btn-warning btn-block"> 
+        Modifier le Quiz
+     </button>
+      </div>
+       
+    </div>  
+  </div>
+  
+  <div class="row">
+    <div class="col-col-md-8 mx-auto">
+      <input (keyup)="SearchTxt()"  [(ngModel)]="SearchText" class=" form-control" type="text" size="100" placeholder="search">
+    </div>
+  </div>
+
+  <h3>Liste des Quiz</h3>
+  <div  class="row my-4">
+   
+    <div *ngFor="let quiz of Rquizs" class="col-md-3 ">
+      <div class="card card-body">
+   <img class="card-img-top" src="{{ quiz.Image }}" 
+   width="50px" height="100px"
+   alt="Card image cap">
+         <h5> 
+          {{ quiz.intitule }}
+        </h5>
+
+        <div class="d-flex align-items-center">
+          <span (click)="toggleetat (quiz)" 
+          [ngClass]="{ 'badge-success' : quiz.etat,
+          'badge-danger' : !quiz.etat}"
+           class="badge  badge-pill">
+           <div *ngIf="quiz.etat; else elseBlock">Ouvert</div>
+           <ng-template #elseBlock>Fermé</ng-template>
+          </span>
+        </div>
+
+        <div class="d-flex align-item-right">
+          <button (click)="editquiz(quiz)" class="btn">
+            <i class="fa fa-pencil"></i>
+           </button>
+        
+          <button (click)="deleteQuiz(quiz.id)" class="btn"> 
+            <i class="fa fa-trash"></i>
+           </button>
+           
+        </div>
+          
+        <span class="badge badge-primary">
+          {{ quiz.code }}
+        </span>
+      
+      </div>
+ 
+</div>
+  </div>
+</div>
+
+

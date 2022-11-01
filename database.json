@@ -1,0 +1,39 @@
+{
+  "quiz": [
+    {
+      "code": "RT3245",
+      "intitule": "Machine Learning",
+      "etat": true,
+      "Image": "assets/Images/ML.jpg",
+      "id": 5
+    },
+    {
+      "code": "TY657",
+      "intitule": "IA",
+      "etat": false,
+      "Image": "assets/Images/IA.jpg",
+      "id": 6
+    },
+    {
+      "code": "TR453",
+      "intitule": "Big Data",
+      "etat": false,
+      "Image": "assets/Images/BigData.jpg",
+      "id": 7
+    },
+    {
+      "code": "AZ345",
+      "intitule": "Angular",
+      "etat": true,
+      "Image": "assets/Images/angular.png",
+      "id": 8
+    },
+    {
+      "code": "GTR123",
+      "intitule": "Laravel",
+      "etat": true,
+      "Image": "assets/Images/Laravel.png",
+      "id": 1
+    }
+  ]
+}
